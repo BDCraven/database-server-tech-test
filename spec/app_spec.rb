@@ -16,6 +16,13 @@ describe 'DatabaseServer' do
     expect(last_response.body).to eq("somevalue")
 
   end
+
+  it 'returns the value stored at somekey' do
+    get '/set?', :somekey => "somevalue"
+    get '/get?key=somekey'
+    expect(last_response).to be_ok
+    expect(last_response.body).to eq("somevalue")
+  end
 end
 # When your server receives a request on
 # http://localhost:4000/set?somekey=somevalue
