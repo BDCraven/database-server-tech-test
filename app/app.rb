@@ -7,5 +7,9 @@ set :port, 4000
     "Hello test server"
   end
 
+  get '/set?' do
+    @value = params[:somekey]
+  end
+
   run! if app_file == $0
 end
